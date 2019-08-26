@@ -18,7 +18,7 @@
 
 ## About
 
-Based on [this article](How to cache all pages in Next.js at server side) by Igor Data.
+Based on [this article](https://medium.com/@igordata/how-to-cache-all-pages-in-next-js-at-server-side-1850aace87dc) by Igor Data.
 
 ## Usage
 
@@ -55,6 +55,8 @@ app
 ## Install
 
 This project uses [node](https://nodejs.org) and [npm](https://www.npmjs.com).
+
+It requires [express](https://expressjs.com/) and [next](https://nextjs.org/) as peer dependencies.
 
 ```sh
 $ npm install next-lru-cache
