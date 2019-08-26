@@ -35,7 +35,7 @@ module.exports = function nextLRUCache (
 
     if (ssrCache.has(key)) {
       if (dev) {
-        res.setHeader('x-lru-cache', 'true')
+        res.setHeader('X-LRU-Cache', 'true')
       }
 
       res.send(ssrCache.get(key))
@@ -53,7 +53,7 @@ module.exports = function nextLRUCache (
       ssrCache.set(key, html)
 
       if (dev) {
-        res.setHeader('x-lru-cache', 'false')
+        res.setHeader('X-LRU-Cache', 'false')
       }
 
       res.send(html)
