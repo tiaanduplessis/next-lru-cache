@@ -1,7 +1,7 @@
 {
   "name": "next-lru-cache",
   "description": "Little LRU cache for Next.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "files": [
