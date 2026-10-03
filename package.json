@@ -8,13 +8,15 @@
     "index.js"
   ],
   "scripts": {
-    "lint": "standard --fix"
+    "lint": "standard",
+    "test": "node test/index.js"
   },
   "dependencies": {
     "lru-cache": "^5.1.1"
   },
   "devDependencies": {
-    "standard": "14.3.1"
+    "express": "4.22.3",
+    "standard": "17.1.2"
   },
   "peerDependencies": {
     "express": "^4",
