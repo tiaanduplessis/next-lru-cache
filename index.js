@@ -2,6 +2,19 @@ const LRUCache = require('lru-cache')
 
 const dev = process.env.NODE_ENV !== 'production'
 
+function sortQuery (value) {
+  if (Array.isArray(value)) return value.map(sortQuery)
+
+  if (value && typeof value === 'object') {
+    return Object.keys(value).sort().reduce((sorted, key) => {
+      sorted[key] = sortQuery(value[key])
+      return sorted
+    }, Object.create(null))
+  }
+
+  return value
+}
+
 module.exports = function nextLRUCache (
   server,
   app,
@@ -9,7 +22,7 @@ module.exports = function nextLRUCache (
     max = 100 * 1024 * 1024,
     length = n => n.length,
     maxAge = 1000 * 60 * 60 * 24 * 30,
-    getCacheKey = req => `${req.path}-${req.query}`
+    getCacheKey = req => JSON.stringify([req.path, sortQuery(req.query)])
   } = {}
 ) {
   const handle = app.getRequestHandler()
